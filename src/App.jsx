@@ -13,7 +13,7 @@ function App() {
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/jobs");
+      const res = await fetch("https://jobportal-9fsf.onrender.com/api/jobs");
       const data = await res.json();
       setJobs(data);
       setFilteredJobs(data);
