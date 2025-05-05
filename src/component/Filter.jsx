@@ -17,6 +17,7 @@ function Filter({ jobs, onFilter }) {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
+    // Start filtering from the full jobs list every time
     let filtered = [...jobs];
 
     // Filter by salary average
@@ -31,7 +32,6 @@ function Filter({ jobs, onFilter }) {
 
     // Filter by job type
     if (jobType) {
-      
       filtered = filtered.filter(
         (job) => job.job_type.toLowerCase() === jobType.toLowerCase()
       );
@@ -51,6 +51,7 @@ function Filter({ jobs, onFilter }) {
       );
     }
 
+    // Apply the filtered data
     onFilter(filtered);
   }, [salary, jobType, location, search, jobs, onFilter]);
 
