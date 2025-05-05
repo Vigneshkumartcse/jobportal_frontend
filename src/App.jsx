@@ -37,11 +37,16 @@ function App() {
   };
 
   return (
-    <div className="relative font-sans">
+    <div className="relative font-sans w-full py-4 bg-[#fBfBff]">
+      <div className="bg-[#ffffff]">
+      <div className="flex justify-center">
       <Header onCreateJob={handleOpenForm} />
-      <div className="mt-10" />
+      </div>
+      <div className="mt-10 w-full" />
       <Filter jobs={jobs} onFilter={setFilteredJobs} />
       <div className="mt-10" />
+      </div>
+     
       {loading ? (
         <div className="text-center py-10">Loading jobs...</div>
       ) : (

@@ -3,7 +3,7 @@ import JobCard from './JobCard';
 
 function JobList({ jobs = [] }) {
   return (
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 px-16">
       {jobs.length > 0 ? (
         jobs.map((job) => (
           <JobCard key={job.job_id} job={job} />
