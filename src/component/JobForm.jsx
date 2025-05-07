@@ -10,6 +10,10 @@ function JobForm({ onJobCreated }) {
     salary_range_to: '',
     application_deadline: '',
     job_desc: '',
+    created_time: new Date().toISOString(),
+    experience: '',      // Added
+    work_mode: '',       // Added
+   
   });
 
   const [loading, setLoading] = useState(false);
@@ -43,7 +47,7 @@ function JobForm({ onJobCreated }) {
       }
 
       setSuccess(true);
-      localStorage.removeItem('jobDraft'); 
+      localStorage.removeItem('jobDraft');
       setFormData({
         job_title: '',
         company_name: '',
@@ -53,6 +57,9 @@ function JobForm({ onJobCreated }) {
         salary_range_to: '',
         application_deadline: '',
         job_desc: '',
+        experience: '',      // Reset
+        work_mode: '',       // Reset
+        created_time: new Date().toISOString(),
       });
       if (onJobCreated) onJobCreated();
     } catch (err) {
@@ -179,6 +186,42 @@ function JobForm({ onJobCreated }) {
             />
           </div>
         </div>
+
+        {/* Experience and Work Mode in a single line */}
+        <div className="flex gap-6 mb-6">
+          {/* Experience */}
+          <div className="flex-1">
+            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="experience">Experience (years)</label>
+            <input
+              type="number"
+              id="experience"
+              name="experience"
+              placeholder="e.g. 2"
+              value={formData.experience}
+              onChange={handleChange}
+              min="0"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black"
+            />
+          </div>
+          {/* Work Mode */}
+          <div className="flex-1">
+            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="work_mode">Work Mode</label>
+            <select
+              id="work_mode"
+              name="work_mode"
+              value={formData.work_mode}
+              onChange={handleChange}
+              required
+              className={`w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.work_mode ? "text-black" : "text-gray-400"}`}
+            >
+              <option value="">Select Work Mode</option>
+              <option value="Onsite">Onsite</option>
+              <option value="Remote">Remote</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </div>
+        </div>
+
         {/* Job Description */}
         <div className="mb-6">
           <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="job_desc">Job Description</label>
