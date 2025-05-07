@@ -1,12 +1,13 @@
 import React from "react";
-import logosvg from "../assets/logosvg.svg";
+import logo from "../assets/cyber.png";
+
 
 const Header = ({ onCreateJob }) => (
   <header className="flex items-center justify-between bg-white px-8 py-4 rounded-[30px] h-[80px] shadow-[0px_0px_20px_0px_#7F7F7F26] gap-10">
     {/* Logo */}
     <div className="flex-shrink-0">
       <img
-        src={logosvg}
+        src={logo}
         alt="Logo"
         className="w-10 h-10 rounded"
       />
