@@ -11,9 +11,8 @@ function JobForm({ onJobCreated }) {
     application_deadline: '',
     job_desc: '',
     created_time: new Date().toISOString(),
-    experience: '',      // Added
-    work_mode: '',       // Added
-   
+    experience: '',
+    work_mode: '',
   });
 
   const [loading, setLoading] = useState(false);
@@ -57,8 +56,8 @@ function JobForm({ onJobCreated }) {
         salary_range_to: '',
         application_deadline: '',
         job_desc: '',
-        experience: '',      // Reset
-        work_mode: '',       // Reset
+        experience: '',
+        work_mode: '',
         created_time: new Date().toISOString(),
       });
       if (onJobCreated) onJobCreated();
@@ -82,13 +81,12 @@ function JobForm({ onJobCreated }) {
   }, []);
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow" style={{ borderRadius: 16 }}>
-      <h2 className="text-2xl font-bold text-center mb-8">Create Job Opening</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="px-3" style={{ borderRadius: 16 }}>
+      <h2 className="text-[24px] font-bold text-center mb-8 text-[#222222]">Create Job Opening</h2>
+      <form onSubmit={handleSubmit}>c
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          {/* Job Title */}
           <div>
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="job_title">Job Title</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="job_title">Job Title</label>
             <input
               type="text"
               id="job_title"
@@ -97,12 +95,12 @@ function JobForm({ onJobCreated }) {
               value={formData.job_title}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black"
+              className="w-full h-[58px] border border-gray-300 rounded-[10px] px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black text-left"
             />
           </div>
-          {/* Company Name */}
+
           <div>
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="company_name">Company Name</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="company_name">Company Name</label>
             <input
               type="text"
               id="company_name"
@@ -111,19 +109,19 @@ function JobForm({ onJobCreated }) {
               value={formData.company_name}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black"
+              className="w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black text-left"
             />
           </div>
-          {/* Location */}
+
           <div>
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="location">Location</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="location">Location</label>
             <select
               id="location"
               name="location"
               value={formData.location}
               onChange={handleChange}
               required
-              className={`w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.location ? "text-black" : "text-gray-400"}`}
+              className={`w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.location ? "text-black" : "text-gray-400"} text-left`}
             >
               <option value="">Choose Preferred Location</option>
               {locations.map(loc => (
@@ -131,16 +129,16 @@ function JobForm({ onJobCreated }) {
               ))}
             </select>
           </div>
-          {/* Job Type */}
+
           <div>
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="job_type">Job Type</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="job_type">Job Type</label>
             <select
               id="job_type"
               name="job_type"
               value={formData.job_type}
               onChange={handleChange}
               required
-              className={`w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.job_type ? "text-black" : "text-gray-400"}`}
+              className={`w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.job_type ? "text-black" : "text-gray-400"} text-left`}
             >
               <option value="">Job Type</option>
               {jobTypes.map(type => (
@@ -148,9 +146,9 @@ function JobForm({ onJobCreated }) {
               ))}
             </select>
           </div>
-          {/* Salary Range */}
+
           <div>
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="salary_range_from">Salary Range</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="salary_range_from">Salary Range</label>
             <div className="grid grid-cols-2 gap-2">
               <input
                 type="text"
@@ -159,7 +157,7 @@ function JobForm({ onJobCreated }) {
                 placeholder="₹ 0"
                 value={formData.salary_range_from}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black"
+                className="w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black text-left"
               />
               <input
                 type="text"
@@ -168,13 +166,13 @@ function JobForm({ onJobCreated }) {
                 placeholder="₹ 12,00,000"
                 value={formData.salary_range_to}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black"
+                className="w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black text-left"
               />
             </div>
           </div>
-          {/* Application Deadline */}
+
           <div>
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="application_deadline">Application Deadline</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="application_deadline">Application Deadline</label>
             <input
               type="date"
               id="application_deadline"
@@ -182,16 +180,14 @@ function JobForm({ onJobCreated }) {
               value={formData.application_deadline}
               onChange={handleChange}
               required
-              className={`w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.application_deadline ? "text-black" : "text-gray-400"}`}
+              className={`w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.application_deadline ? "text-black" : "text-gray-400"} text-left`}
             />
           </div>
         </div>
 
-        {/* Experience and Work Mode in a single line */}
-        <div className="flex gap-6 mb-6">
-          {/* Experience */}
+        <div className="flex flex-col md:flex-row gap-6 mb-6">
           <div className="flex-1">
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="experience">Experience (years)</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="experience">Experience (years)</label>
             <input
               type="number"
               id="experience"
@@ -200,19 +196,19 @@ function JobForm({ onJobCreated }) {
               value={formData.experience}
               onChange={handleChange}
               min="0"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black"
+              className="w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black text-left"
             />
           </div>
-          {/* Work Mode */}
+
           <div className="flex-1">
-            <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="work_mode">Work Mode</label>
+            <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="work_mode">Work Mode</label>
             <select
               id="work_mode"
               name="work_mode"
               value={formData.work_mode}
               onChange={handleChange}
               required
-              className={`w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.work_mode ? "text-black" : "text-gray-400"}`}
+              className={`w-full h-[58px] border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${formData.work_mode ? "text-black" : "text-gray-400"} text-left`}
             >
               <option value="">Select Work Mode</option>
               <option value="Onsite">Onsite</option>
@@ -222,9 +218,8 @@ function JobForm({ onJobCreated }) {
           </div>
         </div>
 
-        {/* Job Description */}
         <div className="mb-6">
-          <label className="block text-sm text-left text-gray-400 font-medium mb-1" htmlFor="job_desc">Job Description</label>
+          <label className="block text-start text-[20px] text-[#222222] font-medium mb-1" htmlFor="job_desc">Job Description</label>
           <textarea
             id="job_desc"
             name="job_desc"
@@ -233,34 +228,35 @@ function JobForm({ onJobCreated }) {
             onChange={handleChange}
             rows="4"
             required
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black"
+            className="w-full border border-gray-300 rounded px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-black text-left"
           ></textarea>
         </div>
+
         {error && <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">{error}</div>}
         {success && <div className="bg-green-100 text-green-700 px-4 py-2 rounded mb-4">Job posted successfully!</div>}
-        {/* Buttons */}
+
         <div className="flex justify-between gap-4 mt-8">
           <button
             type="button"
             onClick={handleSaveDraft}
-            className="flex items-center bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded hover:bg-gray-100 transition duration-200 font-medium"
+            className="flex items-center bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-[10px] hover:bg-gray-100 transition duration-200 font-medium"
           >
-            Save Draft
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/>
-            </svg>
+            Save Draft &nbsp;
+            <i class='fas fa-angle-double-down'></i>
           </button>
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center bg-blue-500 text-white px-8 py-3 rounded hover:bg-blue-600 transition duration-200 font-medium"
+            className="flex items-center bg-[#00AAFF] text-white px-8 py-3 rounded-[10px] hover:bg-blue-600 transition duration-200 font-medium"
           >
             {loading ? 'Publishing...' : (
               <>
-                Publish
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+                Publish &nbsp;
+               <i className='fas fa-angle-double-right'></i><link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
               </>
             )}
           </button>

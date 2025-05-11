@@ -1,8 +1,9 @@
-import React from "react";
+import React  from "react";
 import { timeAgo } from "@/utils";
 import person from "../assets/person.svg";
 import company from "../assets/com.svg";
 import Layers from "../assets/layers.svg";
+
 
 const companyLogos = {
   // amazon: AmazonLogo,
@@ -13,6 +14,8 @@ const companyLogos = {
   // tcs: TcsLogo,
   // ibm: IbmLogo,
 };
+
+
 
 const getCompanyLogo = (companyName) => {
   const key = companyName?.toLowerCase();
@@ -51,6 +54,11 @@ const getCompanyLogo = (companyName) => {
 };
 
 const JobCard = ({ job }) => {
+
+
+
+
+
   const salaryFrom =
   (Number(job.salary_range_from) + Number(job.salary_range_to)) / 2 || 200000;
 const salaryLPA = Math.ceil(salaryFrom / 100000);
@@ -88,35 +96,40 @@ const salaryLPA = Math.ceil(salaryFrom / 100000);
         </div>
       </div>
 
-      <div className="text-gray-600 text-[14px] mb-4 h-20 text-start ">
-        {job.job_desc ? (
-          <>
-            <div className="flex mb-1">
-              <span className="mr-3">•</span>
-              <p>
-                {job.job_desc.split(".")[0]}
-              </p>
-            </div>
-            {job.job_desc.split(".")[1] && (
-              <div className="flex">
-                <span className="mr-3">•</span>
-                <p >
-                  {job.job_desc.split(".")[1]}
-                </p>
-              </div>
-            )}
-          </>
-        ) : (
-          <div className="flex">
-            <span className="mr-2">•</span>
-            <p>No description provided.</p>
-          </div>
-        )}
+      <div className="text-gray-600 text-[14px] mb-4 h-20 text-start overflow-hidden">
+  {job.job_desc ? (
+    <>
+      <div className="flex mb-1">
+        <span className="mr-3">•</span>
+        <p className="text-sm w-full overflow-hidden text-ellipsis max-h-[40px]">
+          {job.job_desc.split(".")[0]}
+        </p>
       </div>
+      {job.job_desc.split(".")[1] && (
+        <div className="flex">
+          <span className="mr-3">•</span>
+          <p className="text-sm w-full overflow-hidden text-ellipsis max-h-[40px]">
+            {job.job_desc.split(".")[1]}
+          </p>
+        </div>
+      )}
+    </>
+  ) : (
+    <div className="flex">
+      <span className="mr-2">•</span>
+      <p className="text-sm w-full overflow-hidden text-ellipsis max-h-[40px]">
+        No description provided.
+      </p>
+    </div>
+  )}
+</div>
 
-      <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition duration-200">
+
+
+      <button  className="w-full bg-[#00AAFF]  text-white py-2 rounded-lg font-medium transition duration-200">
         Apply Now
       </button>
+     
     </div>
   );
 };
